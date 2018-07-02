@@ -20,7 +20,8 @@ public class CubeEditor : MonoBehaviour
         snapPosition.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
         snapPosition.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
         transform.position = new Vector3(snapPosition.x, 0f, snapPosition.z);
-
-        textMesh.text = snapPosition.x / gridSize + "," + snapPosition.z / gridSize;
+        string labelText = snapPosition.x / gridSize + "," + snapPosition.z / gridSize;
+        textMesh.text = labelText;
+        gameObject.name = labelText;
     }
 }
