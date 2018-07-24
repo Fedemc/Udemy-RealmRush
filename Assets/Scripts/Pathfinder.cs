@@ -8,6 +8,9 @@ public class Pathfinder : MonoBehaviour
 
     [SerializeField] Waypoint StartWaypoint, EndWaypoint;
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
+    Queue<Waypoint> queue = new Queue<Waypoint>();
+    [SerializeField]bool isRunning = true;
+
     Vector2Int[] directions =
     {
         Vector2Int.up,
@@ -21,21 +24,46 @@ public class Pathfinder : MonoBehaviour
         LoadBlocks();
         ColorStartAndEnd();
         ExploreNeighbours();
+        Pathfind();
 	}
+
+    private void Pathfind()
+    {
+        queue.Enqueue(StartWaypoint);
+
+        while(queue.Count > 0)
+        {
+            Waypoint searchCenter = queue.Dequeue();
+            print("Searching from: " + searchCenter);   //quitar esto despues
+            HaltIfEndFound(searchCenter);
+            
+        }
+
+        print("Finished pathfinding?");
+    }
+
+    private void HaltIfEndFound(Waypoint searchCenter)
+    {
+        if (searchCenter == EndWaypoint)
+        {
+            print("Start and end waypoints are the same."); //quitar esto despues
+            isRunning = false;
+        }
+    }
 
     private void ExploreNeighbours()
     {
         foreach (Vector2Int dir in directions)
         {
             Vector2Int explorationCoordinates = StartWaypoint.GetGridPos() + dir;
-            print("Exploring " + explorationCoordinates);
+            //print("Exploring " + explorationCoordinates);
             try
             {
                 grid[explorationCoordinates].SetTopColor(Color.blue);
             }
             catch
             {
-                print("Missing key..." + explorationCoordinates + " skipping");
+                //print("Missing key..." + explorationCoordinates + " skipping");
             }
         }
     }
@@ -63,7 +91,7 @@ public class Pathfinder : MonoBehaviour
             }
         }
 
-        print("Loaded " + grid.Count + " blocks");
+        //print("Loaded " + grid.Count + " blocks");
         
     }
 }
