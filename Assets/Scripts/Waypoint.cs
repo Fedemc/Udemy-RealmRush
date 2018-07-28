@@ -6,11 +6,19 @@ public class Waypoint : MonoBehaviour
 {
     Vector2Int gridPos;
     const int gridSize = 10;
+    [SerializeField] Color exploredColor=Color.blue;
 
-    // Update is called once per frame
+    //public esta bien pq es una clase con datos solamente
+    public bool isExplored=false;
+    public Waypoint exploredFrom;
+
+   
     void Update()
     {
-
+        if(isExplored)
+        {
+            //SetTopColor(exploredColor);
+        }
     }
 
     public Vector2Int GetGridPos()
@@ -30,6 +38,5 @@ public class Waypoint : MonoBehaviour
     {
         MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
-
     }
 }
