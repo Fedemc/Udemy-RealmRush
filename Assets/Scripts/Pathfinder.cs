@@ -12,6 +12,7 @@ public class Pathfinder : MonoBehaviour
     bool isRunning = true;
     Waypoint searchCenter; //current searchCenter
 
+    private List<Waypoint> path= new List<Waypoint>();
 
     Vector2Int[] directions =
     {
@@ -21,14 +22,29 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left
     };
 
-    void Start ()
+    public List<Waypoint> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        Pathfind();
-	}
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
+    }
 
-    private void Pathfind()
+    private void CreatePath()
+    {
+        path.Add(EndWaypoint);
+        Waypoint previous = EndWaypoint.exploredFrom;
+        while(previous != StartWaypoint)
+        {
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(StartWaypoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(StartWaypoint);
 
@@ -59,13 +75,9 @@ public class Pathfinder : MonoBehaviour
         foreach (Vector2Int dir in directions)
         {
             Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + dir;
-            try
+            if(grid.ContainsKey(neighbourCoordinates))
             {
                 QueueNewNeigbours(neighbourCoordinates);
-            }
-            catch
-            {
-                //print("Missing key..." + explorationCoordinates + " skipping");
             }
         }
     }
@@ -86,6 +98,7 @@ public class Pathfinder : MonoBehaviour
 
     private void ColorStartAndEnd()
     {
+        //to do: consider moving out
         StartWaypoint.SetTopColor(Color.green);
         EndWaypoint.SetTopColor(Color.red);
     }
@@ -106,8 +119,5 @@ public class Pathfinder : MonoBehaviour
                 grid.Add(gridPos, waypoint);
             }
         }
-
-        //print("Loaded " + grid.Count + " blocks");
-        
     }
 }
