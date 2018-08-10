@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 772101dd4c58f0547b2255bc1c1d4109
+guid: 76d91e272d8f63340ac171b0b286541f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Tower
+    100000: Tower2_Base
     100002: //RootNode
-    400000: Tower
+    400000: Tower2_Base
     400002: //RootNode
     2100000: palette
-    2300000: Tower
-    3300000: Tower
-    4300000: Tower
+    2300000: Tower2_Base
+    3300000: Tower2_Base
+    4300000: Tower2_Base
   externalObjects: {}
   materials:
     importMaterials: 1
