@@ -7,22 +7,40 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] Transform objectToPan;
     [SerializeField] Transform targetEnemy;
-    [SerializeField] float distanceToShoot;
-    [SerializeField] GameObject towerBullet;
+    [SerializeField] float distanceToShoot=10f;
+    [SerializeField] ParticleSystem towerBullet;
 
     // Update is called once per frame
     void Update()
     {
-        LookAtEnemy(targetEnemy);
-        //CalculateDistance();
+        if(targetEnemy)
+        {
+            LookAtEnemy(targetEnemy);
+            CalculateDistance();
+        }
+        else
+        {
+            AttackEnemy(false);
+        }
     }
 
     private void CalculateDistance()
     {
-        if (Vector3.Distance(gameObject.transform.position, targetEnemy.position) <= distanceToShoot)
+        float distanceToEnemy = Vector3.Distance(gameObject.transform.position, targetEnemy.position);
+        if (distanceToEnemy <= distanceToShoot)
         {
-            
+            AttackEnemy(true);
         }
+        else
+        {
+            AttackEnemy(false);
+        }
+    }
+
+    private void AttackEnemy(bool isActive)
+    {
+        var emissionModule = towerBullet.emission;
+        emissionModule.enabled = isActive;
     }
 
     private void LookAtEnemy(Transform targetEnemy)
