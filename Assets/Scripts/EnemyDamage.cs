@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] Collider collisionMesh;
-    [SerializeField] int hitPoints=30;
+    [SerializeField] int hitPoints=10;
 
 	// Use this for initialization
 	void Start ()
@@ -16,7 +16,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Im hit");
+        //Debug.Log("Im hit");
         ProcessHit();
         if(hitPoints <=0)
         {
@@ -27,7 +27,6 @@ public class EnemyDamage : MonoBehaviour
     void ProcessHit()
     {
         hitPoints = hitPoints - 1;
-        print("Current hitpoints: " + hitPoints);
     }
 
     private void KillEnemy()
