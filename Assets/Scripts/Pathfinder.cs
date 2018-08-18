@@ -35,22 +35,28 @@ public class Pathfinder : MonoBehaviour
     private void CalculatePath()
     {
         LoadBlocks();
-        ColorStartAndEnd();
         BreadthFirstSearch();
         CreatePath();
     }
 
     private void CreatePath()
     {
-        path.Add(EndWaypoint);
+        SetAsPath(EndWaypoint);
+
         Waypoint previous = EndWaypoint.exploredFrom;
         while(previous != StartWaypoint)
         {
-            path.Add(previous);
+            SetAsPath(previous);
             previous = previous.exploredFrom;
         }
-        path.Add(StartWaypoint);
+        SetAsPath(StartWaypoint);
         path.Reverse();
+    }
+
+    private void SetAsPath(Waypoint w)
+    {
+        path.Add(w);
+        w.isPlaceable = false;
     }
 
     private void BreadthFirstSearch()
@@ -105,12 +111,6 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void ColorStartAndEnd()
-    {
-        //to do: consider moving out
-        StartWaypoint.SetTopColor(Color.green);
-        EndWaypoint.SetTopColor(Color.red);
-    }
 
     private void LoadBlocks()
     {

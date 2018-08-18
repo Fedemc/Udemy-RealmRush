@@ -11,6 +11,7 @@ public class Waypoint : MonoBehaviour
     //public esta bien pq es una clase con datos solamente
     public bool isExplored=false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
 
    
     void Update()
@@ -34,9 +35,19 @@ public class Waypoint : MonoBehaviour
         return gridSize;
     }
 
-    public void SetTopColor(Color color)
+    void OnMouseOver()
     {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
+        //detect mouse click
+        if(Input.GetMouseButtonUp(0))
+        {
+            if(isPlaceable)
+            {
+                Debug.Log("Building tower at: " + gameObject.name);
+            }
+            else
+            {
+                Debug.Log("Can't build at " + gameObject.name);
+            }
+        }
     }
 }
