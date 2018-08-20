@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             var enemy=Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             enemy.transform.parent = gameObject.transform;

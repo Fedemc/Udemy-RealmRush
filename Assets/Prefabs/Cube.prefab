@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442067812608786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 0, z: 50}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4667688398337226}
@@ -316,6 +316,9 @@ MonoBehaviour:
   exploredColor: {r: 0, g: 0, b: 1, a: 1}
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isPlaceable: 1
+  towerPrefab: {fileID: 114984896375066082, guid: 1684dbc28b022ad4e8d614a01edb95a9,
+    type: 2}
 --- !u!114 &114690264483983790
 MonoBehaviour:
   m_ObjectHideFlags: 1
