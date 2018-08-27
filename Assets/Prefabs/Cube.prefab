@@ -319,6 +319,10 @@ MonoBehaviour:
   isPlaceable: 1
   towerPrefab: {fileID: 114984896375066082, guid: 1684dbc28b022ad4e8d614a01edb95a9,
     type: 2}
+  towerPrefabs:
+  - {fileID: 114765076675492782, guid: 2276de1a252a3e9428bb7368e16c1ab4, type: 2}
+  - {fileID: 114949414816102472, guid: 9b96bdfdec64c474eb47869a030caca2, type: 2}
+  - {fileID: 114984896375066082, guid: 1684dbc28b022ad4e8d614a01edb95a9, type: 2}
 --- !u!114 &114690264483983790
 MonoBehaviour:
   m_ObjectHideFlags: 1

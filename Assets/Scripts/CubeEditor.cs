@@ -38,5 +38,4 @@ public class CubeEditor : MonoBehaviour
         gameObject.name = labelText;
     }
 
-    
 }
