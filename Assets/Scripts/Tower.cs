@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectToPan;
     [SerializeField] float distanceToShoot=10f;
     [SerializeField] ParticleSystem towerBullet;
+    public Waypoint baseWaypoint;  //where the tower is standing
 
     //State
     Transform targetEnemy;
