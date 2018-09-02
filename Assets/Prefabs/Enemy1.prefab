@@ -402,7 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ae81656131c3b4fbb31a3ce2e1ab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 40
+  movementPeriod: 0.3
+  enemyGoalParticles: {fileID: 198732106028396246, guid: 95ae0e9a8cda0b348b62f2a8f02d70e4,
+    type: 2}
 --- !u!114 &114801279812328110
 MonoBehaviour:
   m_ObjectHideFlags: 1

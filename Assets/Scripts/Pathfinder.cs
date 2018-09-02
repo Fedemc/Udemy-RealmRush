@@ -71,8 +71,7 @@ public class Pathfinder : MonoBehaviour
             searchCenter.isExplored = true;
         }
 
-
-        print("Finished pathfinding?");
+        //print("Finished pathfinding?");
     }
 
     private void HaltIfEndFound()
