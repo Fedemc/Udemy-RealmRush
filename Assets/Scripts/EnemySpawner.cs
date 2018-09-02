@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [Range(0.1f,120f)][SerializeField][Tooltip("Seconds between spawns")] float secondsBetweenSpawns=1f;
     [SerializeField] GameObject enemyPrefab;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         StartCoroutine("SpawnEnemy");	
 	}

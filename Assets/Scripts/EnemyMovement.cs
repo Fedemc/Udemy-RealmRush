@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] float moveSpeed = 10f;
+    private Waypoint targetWaypoint;
 
     // Use this for initialization
     void Start()
@@ -18,7 +20,9 @@ public class EnemyMovement : MonoBehaviour
         //Debug.Log("Starting patrol...");
         foreach (Waypoint waypoint in path)
         {
-            transform.position = waypoint.transform.position;
+            //Move
+            //transform.position = waypoint.transform.position;
+            targetWaypoint = waypoint;
             yield return new WaitForSeconds(1f);
         }
 
@@ -27,6 +31,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
-		
-	}
+        float moveTime = moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.transform.position, moveTime);
+    }
+
+
 }

@@ -8,7 +8,12 @@ public class TowerFactory : MonoBehaviour
     [SerializeField] Tower[] towerPrefabs;
     private int towerCount=0;
     private Queue<Tower> towers = new Queue<Tower>();
+    private Transform towerParent;
 
+    private void Start()
+    {
+        towerParent= GameObject.Find("Towers").transform;
+    }
 
     public void AddTower(Waypoint baseWaypoint)
     {
@@ -36,7 +41,7 @@ public class TowerFactory : MonoBehaviour
     private void InstantiateNewTower(Waypoint baseWaypoint)
     {
         var tower = Instantiate(pickRandomTower(), baseWaypoint.transform.position, Quaternion.identity);
-        tower.transform.parent = GameObject.Find("Towers").transform;
+        tower.transform.parent = towerParent.transform;
         tower.baseWaypoint = baseWaypoint;
         baseWaypoint.isPlaceable = false;
         towers.Enqueue(tower);
