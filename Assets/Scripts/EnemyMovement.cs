@@ -11,14 +11,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] ParticleSystem enemyGoalParticles;
     private Transform enemyGoalParticlesParent;
 
-    // Use this for initialization
+
+   
     void Start()
     {
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         var path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
         enemyGoalParticlesParent = GameObject.Find("DeathFXs").transform;
-
     }
 
     IEnumerator FollowPath(List<Waypoint> path)

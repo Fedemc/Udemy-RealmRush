@@ -9,7 +9,10 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectToPan;
     [SerializeField] float distanceToShoot=10f;
     [SerializeField] ParticleSystem towerBullet;
+    [SerializeField] AudioClip shootSFX;
+
     public Waypoint baseWaypoint;  //where the tower is standing
+
 
     //State
     Transform targetEnemy;
@@ -80,6 +83,10 @@ public class Tower : MonoBehaviour
     {
         var emissionModule = towerBullet.emission;
         emissionModule.enabled = isActive;
+        /* Para terminar una vez que pueda controlar que no se sobrepongan los audios
+        if (isActive)
+            gameObject.GetComponent<AudioSource>().PlayOneShot(shootSFX);
+        */
     }
 
     private void LookAtEnemy(Transform targetEnemy)

@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
@@ -50,7 +50,7 @@ MonoBehaviour:
       ambientOnly: 0
       highPrecision: 0
   screenSpaceReflection:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       reflection:
         blendType: 0
@@ -79,9 +79,9 @@ MonoBehaviour:
   motionBlur:
     m_Enabled: 0
     m_Settings:
-      shutterAngle: 232
-      sampleCount: 5
-      frameBlending: 0
+      shutterAngle: 51
+      sampleCount: 4
+      frameBlending: 0.007
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.47
+        intensity: 0.98
         threshold: 1.16
         softKnee: 0
         radius: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
       colorWheels:
-        mode: 1
+        mode: 0
         log:
           slope: {r: 1, g: 1, b: 1, a: 0}
           power: {r: 1, g: 1, b: 1, a: 0}
@@ -287,25 +287,7 @@ MonoBehaviour:
         lumVSsat:
           curve:
             serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0.14012739
-              value: 0.38095236
-              inSlope: 2.1360548
-              outSlope: 2.1360548
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 0.87261146
-              value: 0.91156465
-              inSlope: 1.9580505
-              outSlope: 1.9580505
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
+            m_Curve: []
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 4
@@ -326,7 +308,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.1
+      intensity: 0
   grain:
     m_Enabled: 0
     m_Settings:

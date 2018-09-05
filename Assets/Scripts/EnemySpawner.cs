@@ -9,12 +9,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] int numberOfEnemies;
     [SerializeField] Text txtEnemiesSpawned;
+    [SerializeField] AudioClip enemySpawnSFX;
+
     private int spawnedEnemies;
-    
+    private AudioSource myAudioSource;
 
     // Use this for initialization
     void Start ()
     {
+        myAudioSource = GetComponent<AudioSource>();
         StartCoroutine("SpawnEnemy");
         spawnedEnemies = 0;
         txtEnemiesSpawned.text = spawnedEnemies.ToString();
@@ -31,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             var enemy=Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            myAudioSource.PlayOneShot(enemySpawnSFX);
             enemy.transform.parent = gameObject.transform;
             spawnedEnemies++;
             txtEnemiesSpawned.text = spawnedEnemies.ToString();
